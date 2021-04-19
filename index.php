@@ -1,6 +1,9 @@
 <?php
+
+/** Function koneksi ini adalah fungsi untuk membuat koneksi ke database */
 require_once("koneksi.php");
 
+/** memanggil model */
 require_once("Model/AslabModel.php");
 require_once("Model/AuthModel.php");
 require_once("Model/DaftarPrakModel.php");
