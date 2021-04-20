@@ -19,7 +19,7 @@ class DaftarPrakModel
     public function index(){
         $data = $this->get();
         extract($data);
-        require_once("Vie/daftarprak/index.php");
+        require_once("View/daftarprak/index.php");
     }
 }
 
