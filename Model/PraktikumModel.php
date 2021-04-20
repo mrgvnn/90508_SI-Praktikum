@@ -21,6 +21,6 @@ class PraktikumModel
 
 }
 
-$tes = new PraktikumModel();
-var_export($tes->get());
-die();
+//$tes = new PraktikumModel();
+//var_export($tes->get());
+//die();
