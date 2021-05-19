@@ -43,8 +43,7 @@ class AslabModel
     }
     
     /**
-     * @param integer $idPraktikan berisi id praktikan
-     * Function getNilaiPraktikan berfungsi untuk mengambil seluruh data nilai dari database
+     * Function getNilaiPraktikan berfungsi untuk mengambil data nilai dari database
       */
     public function getNilaiPraktikan($idPraktikan){
         $sql = "SELECT * from nilai
@@ -72,5 +71,5 @@ class AslabModel
 }
 
 //$tes = new AslabModel();
-//var_export($tes->getNilaiPraktikan(1));
+//var_export($tes->getModul(1));
 //die();

@@ -1,16 +1,14 @@
 <?php
-
-/** Function koneksi ini adalah fungsi untuk membuat koneksi ke database */
+//koneksi ke database
 require_once("koneksi.php");
 
-/** memanggil model */
-require_once("Model/AslabModel.php");
-require_once("Model/AuthModel.php");
-require_once("Model/DaftarPrakModel.php");
-require_once("Model/ModulModel.php");
-require_once("Model/PraktikanModel.php");
-require_once("Model/PraktikumModel.php");
-
+//memanggil model
+require_once("model/AslabModel.php");
+require_once("model/AuthModel.php");
+require_once("model/DaftarPrakModel.php");
+require_once("model/ModulModel.php");
+require_once("model/PraktikanModel.php");
+require_once("model/PraktikumModel.php");
 
 //Routing dari URL ke Obyek Class PHP
 if (isset($_GET['page']) && isset($_GET['aksi'])) {
@@ -20,7 +18,6 @@ if (isset($_GET['page']) && isset($_GET['aksi'])) {
     $page = $_GET['page']; // Berisi nama page
     $aksi = $_GET['aksi']; // Aksi Dari setiap page
 
-    //echo $_GET['tes'];
 
     // require_once akan Dirubah Saat Modul 2
     if ($page == "auth") {
@@ -50,7 +47,7 @@ if (isset($_GET['page']) && isset($_GET['aksi'])) {
         if($_SESSION['role'] =='aslab'){ 
             $aslab = new AslabModel();
         if ($aksi == 'view') {
-            $aslab->index();
+            $aslab-> index();
         } else if ($aksi == 'nilai') {
             require_once("View/aslab/nilai.php");
         } else if ($aksi == 'createNilai') {

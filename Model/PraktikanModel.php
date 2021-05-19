@@ -24,7 +24,7 @@ class PraktikanModel
     /**
      * Function getPraktikum berfungsi untuk mengambil seluruh data praktikum yang aktif
      */
-    public function getPRaktikum(){
+    public function getPraktikum(){
         $sql = "SELECT * FROM praktikum WHERE status = 1";
         $query = koneksi()->query($sql);
          $hasil = [];
@@ -111,6 +111,30 @@ class PraktikanModel
     
 }
 
-//$tes = new praktikanModel();
+
+//$tes = new PraktikanModel();
+//var_export($tes->get(1));
+//die();
+
+//$tes = new PraktikanModel();
+//var_export($tes->getPraktikum(1));
+//die();
+
+//$tes = new PraktikanModel();
+//var_export($tes->getPendaftaranPraktikum(1));
+//die();
+
+//$tes = new PraktikanModel();
+//var_export($tes->getModul());
+//die();
+
+//$tes = new PraktikanModel();
 //var_export($tes->getNilaiPraktikan(1,2));
 //die();
+
+
+
+
+
+
+
