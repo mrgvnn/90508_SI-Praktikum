@@ -123,4 +123,8 @@ class ModulModel
     }
 }
 
- 
+// $tes = new ModulModel();
+//var_export($tes -> prosesStore("tesNama",2));
+//var_export($tes -> prosesDelete(3));
+
+//die();

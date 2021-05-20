@@ -149,3 +149,10 @@ class PraktikumModel
         require_once("View/praktikum/edit.php");
     }
 }
+
+//$tes = new PraktikumModel();
+//var_export($tes -> getById(1));
+//var_export($tes -> storeUpdate("tesNama", "2021-02-22",3));
+//var_export($tes -> prosesAktifkan(1));
+//var_export($tes -> prosesNonAktifkan(1));
+//die();

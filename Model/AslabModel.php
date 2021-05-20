@@ -37,7 +37,7 @@ class AslabModel
          $query = koneksi()->query($sql);
          $hasil = [];
          while($data = $query->fetch_assoc()){
-             $hasil = $data;
+             $hasil [] = $data;
             }
         return $hasil;
     }
@@ -53,7 +53,7 @@ class AslabModel
           $query = koneksi()->query($sql);
           $hasil = [];
           while($data = $query->fetch_assoc()){
-              $hasil = $data;
+              $hasil []= $data;
              }
          return $hasil;
     }
@@ -104,12 +104,16 @@ class AslabModel
         }
     }
 
-    public function createNilai(){
+    public function createNilai()
+    {
+        $modul=$this->getModul();
         extract($modul);
         require_once('View/aslab/createNilai.php');
     }
 }
 
 //$tes = new AslabModel();
-//var_export($tes->createNilai(1, 1, 90));
+//var_export($tes -> getNilaiPraktikan(1));
+//var_export($tes -> prosesStoreNilai(1,2,80));
 //die();
+

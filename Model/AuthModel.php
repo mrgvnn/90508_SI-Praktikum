@@ -118,3 +118,8 @@ public function index()
     }
 }
 
+//$tes = new AuthModel();
+//var_export($tes->prosesAuthAslab('06.2018.1.07072','123'));
+//var_export($tes->prosesAuthPraktikan('06.2018.1.07000','123'));
+//var_export($tes->prosesStorePraktikan('tesNama','tesNpm','123', "password"));
+//die();

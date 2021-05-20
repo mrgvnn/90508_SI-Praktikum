@@ -182,9 +182,11 @@ class PraktikanModel
 //$tes = new PraktikanModel();
 //var_export($tes->prosesUpdate('tesnamaupdate','1234','pass','1234',3));
 //die();
-
+//var_export($tes->getPendaftaranPraktikum(3,2));
 //$tes = new PraktikanModel();
 //var_export($tes->prosesStorePraktikum(3,2));
+//var_export($tes->getNilaiPraktikan(2,2));
+
 //die();
 
 
