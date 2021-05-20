@@ -4,7 +4,7 @@ class DaftarPrakModel
     /**Function get berfungsi untuk mengambil seluruh data praktikum yang telah mendaftar praktikum */
     public function get()
     {
-        $sql = "SELECT daftarprak.id as idDaftar , daftarprak.praktikan_id as id_Praktikan , praktikan.nama as namaPraktikan , daftarprak.status as status, praktikum.nama as namaPraktikum FROM daftarprak
+        $sql = "SELECT daftarprak.id as idDaftar , daftarprak.praktikan_id as idPraktikan , praktikan.nama as namaPraktikan , daftarprak.status as status, praktikum.nama as namaPraktikum FROM daftarprak
          JOIN praktikan ON praktikan.id = daftarprak.praktikan_id
          JOIN praktikum ON praktikum.id = daftarprak.praktikum_id
          WHERE praktikum.status = 1";
@@ -60,7 +60,7 @@ public function prosesUnVerif($id, $idPraktikan)
 public function verif()
 {
     $id = $_GET['id'];
-    $idAslab = $_GET['aslab']['id'];
+    $idAslab = $_SESSION['aslab']['id'];
     if($this->prosesVerif($id, $idAslab)){
         header("location: index.php?page=daftarprak&aksi=view&pesan=Berhasil Verif Praktikan");
     }else{

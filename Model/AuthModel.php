@@ -26,7 +26,7 @@ public function index()
     /**
      * function daftar_praktikan fungsinya untuk mengatur tampilan daftar
      **/
-    public function daftar_praktikan()
+    public function daftarPraktikan()
     {
         require_once("View/auth/daftar_praktikan.php");
     }

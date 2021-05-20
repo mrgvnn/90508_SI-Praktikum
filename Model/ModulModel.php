@@ -90,23 +90,23 @@ class ModulModel
 
         if ($getLasData == null) {
             for ($i = 1; $i <= $modul; $i++) {
-                $nama = 'Modul' . $i;
+                $nama = 'Modul ' . $i;
                 $post = $this->prosesStore($nama,$praktikum);
             }
         } else {
             $modulLast = explode(" ", $getLastData['nama']);
             for ($i = 1; $i <= $modul; $i++) {
                 $a = $modulLast['1'] += 1;
-                $nama = 'Modul' . $a;
+                $nama = 'Modul ' . $a;
                 $post = $this->prosesStore($nama,$praktikum);
             }
         }
 
         if ($post) {
-            header("location:index.php?page=modul&aks=view&pesan=Berhasil Menambah Data");
+            header("location:index.php?page=modul&aksi=view&pesan=Berhasil Menambah Data");
         }
         else{
-            header("location:index.php?page=modul&aks=create&pesan=Gagal Menambah Data");
+            header("location:index.php?page=modul&aksi=create&pesan=Gagal Menambah Data");
         }
     }
     /**
@@ -116,9 +116,9 @@ class ModulModel
     {
         $id = $_GET['id'];
         if ($this->prosesDelete($id)) {
-            header("location:index.php?page=modul&aks=view&pesan=Berhasil Delete Data");
+            header("location:index.php?page=modul&aksi=view&pesan=Berhasil Delete Data");
         } else {
-            header("location:index.php?page=modul&aks=view&pesan=Gagal Delete Data");
+            header("location:index.php?page=modul&aksi=view&pesan=Gagal Delete Data");
         }
     }
 }

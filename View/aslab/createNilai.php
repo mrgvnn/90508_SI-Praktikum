@@ -27,7 +27,7 @@
                                 <label for="">Jumlah Modul : </label>
                                 <select name="modul" class="form-control" required>
                                     <?php foreach($modul as $row) : ?>
-                                    <option value="<?=$row['idModul']?>"><?= $row['namaModul']  >Modul 4</option>
+                                    <option value="<?=$row['idModul']?>"><?= $row['namaModul']?>Modul 4</option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

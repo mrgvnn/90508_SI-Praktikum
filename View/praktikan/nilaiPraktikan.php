@@ -23,7 +23,7 @@
                         <thead>
                             <tr>
                                 <?php foreach ($modul as $row) : ?>
-                                    <td><?= $row['namaModul']?></td>
+                                    <td><?= $row['namaModul']; ?></td>
                                 <?php endforeach; ?>
                             </tr>
                         </thead>

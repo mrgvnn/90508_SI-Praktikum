@@ -115,24 +115,26 @@ class PraktikumModel
  * function aktifkan untuk memproses update salah satu field data
  * fungsi ini membutuhkan data id dengan metode http request GET
  */
-    public function aktifkan()
+    public function aktifkan(){
     $id = $_GET['id'];
     if ($this->prosesAktifkan($id)) {
         header("location:index.php?page=praktikum&aksi=view&pesan=Berhasil Men-Aktifkan Data");
         } else{
         header("location:index.php?page=praktikum&aksi=edit&pesan=Gagal Men-Aktifkan Data");
     }
+}
 /**
  * function aktifkan untuk memproses update salah satu field data
  * fungsi ini membutuhkan data id dengan metode http request GET
  */
     public function nonAktifkan()
-    $id = $_GET['id'];
+    {$id = $_GET['id'];
     if ($this->prosesNonAktifkan($id)) {
         header("location:index.php?page=praktikum&aksi=view&pesan=Berhasil non-Aktifkan Data");
         } else{
         header("location:index.php?page=praktikum&aksi=edit&pesan=Gagal non-Aktifkan Data");
     }
+}
 /**
  * function ini untuk menampilkan halaman edit
  * juga mengambil salah satu data dari database
