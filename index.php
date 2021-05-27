@@ -10,6 +10,14 @@ require_once("model/ModulModel.php");
 require_once("model/PraktikanModel.php");
 require_once("model/PraktikumModel.php");
 
+//memanggil controller
+require_once("Controller/AuthController.php");
+require_once("Controller/AslabController.php");
+require_once("Controller/PraktikumController.php");
+require_once("Controller/DaftarprakController.php");
+require_once("Controller/ModulController.php");
+require_once("Controller/PraktikanController.php");
+
 //Routing dari URL ke Obyek Class PHP
 if (isset($_GET['page']) && isset($_GET['aksi'])) {
 
@@ -21,7 +29,7 @@ if (isset($_GET['page']) && isset($_GET['aksi'])) {
 
     // require_once akan Dirubah Saat Modul 2
     if ($page == "auth") {
-        $auth = new AuthModel();
+        $auth = new AuthController();
         if ($aksi == 'view') {
             $auth->index();
         } else if ($aksi == 'loginAslab') {
@@ -37,23 +45,26 @@ if (isset($_GET['page']) && isset($_GET['aksi'])) {
         } else if ($aksi == 'daftarPraktikan') {
             $auth->daftarPraktikan();
         } else if ($aksi == 'storePraktikan') {
-            $auth->storePraktikan();
+            //require_once("View/auth/index.php");
+            $auth -> storePraktikan();
         } else {
             echo "Method Not Found";
         }
     } else if ($page == "aslab") {
         require_once("View/menu/menu_aslab.php");
 
-        if($_SESSION['role'] =='aslab'){ 
-            $aslab = new AslabModel();
+        if($_SESSION['role'] == 'aslab'){ 
+            $aslab = new AslabController();
         if ($aksi == 'view') {
-            $aslab-> index();
+            $aslab -> index();
         } else if ($aksi == 'nilai') {
-            $aslab->nilai();
+            $aslab -> nilai();
         } else if ($aksi == 'createNilai') {
-            $aslab->createNilai();
+            //require_once("View/aslab/createNilai.php");
+            $aslab -> createNilai();
         } else if ($aksi == 'storeNilai') {
-            $aslab->storeNilai();
+            //require_once("View/aslab/nilai.php");
+            $aslab -> storeNilai();
         } else {
             echo "Method Not Found";
         }
@@ -64,24 +75,24 @@ if (isset($_GET['page']) && isset($_GET['aksi'])) {
     } else if ($page == "praktikum") {
         require_once("View/menu/menu_aslab.php");
         if($_SESSION['role'] =='aslab'){ 
-            $praktikum = new PraktikumModel();
-        if ($aksi == 'view') {
-            $praktikum->index();
-        } else if ($aksi == 'create') {
-            $praktikum->create();
-        } else if ($aksi == 'store') {
-            $praktikum->store();
-        } else if ($aksi == 'edit') {
-            $praktikum->edit();
-        } else if ($aksi == 'update') {
-            $praktikum->update();
-        } else if ($aksi == 'aktifkan') {
-            $praktikum->aktifkan();
-        } else if ($aksi == 'nonAktifkan') {
-            $praktikum->nonAktifkan();
-        } else {
-            echo "Method Not Found";
-        }
+            $praktikum = new PraktikumController();
+            if ($aksi == 'view') {
+                $praktikum->index();
+            } else if ($aksi == 'create') {
+                $praktikum->create();
+            } else if ($aksi == 'store') {
+                $praktikum->store();
+            } else if ($aksi == 'edit') {
+                $praktikum->edit();
+            } else if ($aksi == 'update') {
+                $praktikum->update();
+            } else if ($aksi == 'aktifkan') {
+                $praktikum->aktifkan();
+            } else if ($aksi == 'nonAktifkan') {
+                $praktikum->nonAktifkan();
+            } else {
+                echo "Method Not Found";
+            }
     } else {
             header("location: index.php?page=auth&aksi=loginAslab"); 
     }
@@ -89,15 +100,18 @@ if (isset($_GET['page']) && isset($_GET['aksi'])) {
     } else if ($page == "modul") {
         require_once("View/menu/menu_aslab.php");
         if($_SESSION['role'] =='aslab'){ 
-            $modul =  new ModulModel();
+            $modul =  new ModulController();
         if ($aksi == 'view') {
             $modul->index();
         } else if ($aksi == 'create') {
+            //require_once("View/modul/create.php");
            $modul->create();
         } else if ($aksi == 'store') {
-           $modul->store();
+            //require_once("View/modul/index.php");
+            $modul->store();
         } else if ($aksi == 'delete') {
-            $modul->delete();
+            //require_once("View/modul/index.php");
+           $modul->delete();
         } else {
             echo "Method Not Found";
         }
@@ -107,37 +121,39 @@ if (isset($_GET['page']) && isset($_GET['aksi'])) {
     } else if ($page == "praktikan") {
         require_once("View/menu/menu_praktikan.php");
         if($_SESSION['role'] =='praktikan'){ 
-            $praktikan = new PraktikanModel;
-        if ($aksi == 'view') {
-            $praktikan ->index();
-        } else if ($aksi == 'edit') {
-            $praktikan->edit();
-        } else if ($aksi == 'update') {
-            $praktikan->update();
-        } else if ($aksi == 'praktikum') {
-            $praktikan->praktikum();
-        } else if ($aksi == 'daftarPraktikum') {
-            $praktikan->daftarPraktikum();
-        } else if ($aksi == 'storePraktikum') {
-           $praktikan->storePraktikan();
-        } else if ($aksi == 'nilaiPraktikan') {
-            $praktikan->nilaiPraktikan();
-        } else {
-            echo "Method Not Found";
-        }
+            $praktikan = new PraktikanController();
+            if ($aksi == 'view') {
+                $praktikan -> index();
+            } else if ($aksi == 'edit') {
+                $praktikan->edit();
+            } else if ($aksi == 'update') {
+                $praktikan->update();
+            } else if ($aksi == 'praktikum') {
+                $praktikan->praktikum();
+            } else if ($aksi == 'daftarPraktikum') {
+                $praktikan->daftarPraktikum();
+            } else if ($aksi == 'storePraktikum') {
+               $praktikan->storePraktikum();
+            } else if ($aksi == 'nilaiPraktikan') {
+                $praktikan->nilaiPraktikan();
+            } else {
+                echo "Method Not Found";
+            }
     } else {
         header("location: index.php?page=auth&aksi=loginPraktikan");  
     }
     } else if ($page == 'daftarprak') {
         require_once("View/menu/menu_aslab.php");
         if($_SESSION['role'] =='aslab'){ 
-            $daftarprak = new DaftarPrakModel();
+            $daftarprak = new DaftarprakController();
         if ($aksi == 'view') {
-            $daftarprak->index();
+            $daftarprak -> index();
         } else if ($aksi == 'verif') {
-            $daftarprak->verif();
+            //require_once("View/daftarprak/index.php");
+            $daftarprak -> verif();
         } else if ($aksi == 'unVerif') {
-            $daftarprak->unVerif();
+            //require_once("View/daftarprak/index.php");
+            $daftarprak -> unVerif();
         } else {
             echo "Method Not Found";
         }

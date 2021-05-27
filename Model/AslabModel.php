@@ -16,18 +16,11 @@ class AslabModel
         $query = koneksi()->query($sql);
         $hasil = [];
         while($data = $query->fetch_assoc()){
-            $hasil = $data;
+            $hasil [] = $data;
         }
         return $hasil;
     }
 
-    /** Function index digunakan untuk mengatur tampilan awal */
-    public function index(){
-        $idAslab = $_SESSION['aslab']['id'];
-        $data = $this->get($idAslab);
-        extract($data);
-        require_once("View/aslab/index.php");
-    }
     
     /**Function modul digunakan untuk mengambil seluruh data modul */
     public function getModul(){
@@ -37,7 +30,7 @@ class AslabModel
          $query = koneksi()->query($sql);
          $hasil = [];
          while($data = $query->fetch_assoc()){
-             $hasil [] = $data;
+             $hasil[] = $data;
             }
         return $hasil;
     }
@@ -53,19 +46,9 @@ class AslabModel
           $query = koneksi()->query($sql);
           $hasil = [];
           while($data = $query->fetch_assoc()){
-              $hasil []= $data;
+              $hasil[] = $data;
              }
          return $hasil;
-    }
-
-    /**Function nilai berfungsi untuk mengatur tampilan halaman data nilai praktikan */
-    public function nilai(){
-        $idPraktikan = $_GET['id'];
-        $modul = $this->getModul();
-        $nilai = $this->getNilaiPraktikan($idPraktikan);
-        extract($modul);
-        extract($nilai);
-        require_once("View/aslab/nilai.php");
     }
 
     /**
@@ -90,30 +73,9 @@ class AslabModel
     }
 
 
-    /**
-     * function storeNIlai berfungsi untuk menyimpan data nilai sesuai dengan id praktikan yang ada dari form yang telah diisi aslab pada halaman create nilai
-     */
-    public function storeNilai(){
-        $idModul = $_POST['modul'];
-        $idPraktikan = $_GET['id'];
-        $nilai = $_POST['nilai'];
-        if($this->prosesStoreNilai($idModul, $idPraktikan, $nilai)){
-            header("location: index.php?page=aslab&aksi=nilai&pesan = Berhasil tambah data&id=$idPraktikan");
-        }else{
-            header("location: index.php?page=aslab&aksi=createNilai&pesan = Gagal tambah data&id=$idPraktikan");
-        }
-    }
 
-    public function createNilai()
-    {
-        $modul=$this->getModul();
-        extract($modul);
-        require_once('View/aslab/createNilai.php');
-    }
 }
-
 //$tes = new AslabModel();
 //var_export($tes -> getNilaiPraktikan(1));
 //var_export($tes -> prosesStoreNilai(1,2,80));
 //die();
-

@@ -15,13 +15,7 @@ class DaftarPrakModel
          }
          return $hasil;
     }
-    /** Function index berfungsi untuk mengatur tampilan halaman awal daftar */
-    public function index(){
-        $data = $this->get();
-        extract($data);
-        require_once("View/daftarprak/index.php");
-    }
-
+   
 
 /**
  * @param integer $id berisi id
@@ -53,37 +47,6 @@ public function prosesUnVerif($id, $idPraktikan)
     return $query;
 }
 
-/**
- * function verif berfungsi untuk memverifikasi praktikan yang sudah mendaftar praktikum
- */
-
-public function verif()
-{
-    $id = $_GET['id'];
-    $idAslab = $_SESSION['aslab']['id'];
-    if($this->prosesVerif($id, $idAslab)){
-        header("location: index.php?page=daftarprak&aksi=view&pesan=Berhasil Verif Praktikan");
-    }else{
-        header("location: index.php?page=daftarprak&aksi=view&pesan=Gagal Verif Praktikan");
-    }
-}
-
-/**
- * function Unverif digunakan untuk membatalkan verifikasi
- */
-
-public function unVerif()
-{
-    $id = $_GET['id'];
-    $idAslab = $_GET['idPraktikan'];
-    if($this->prosesUnVerif($id, $idPraktikan)){
-        header("location: index.php?page=daftarprak&aksi=view&pesan=Berhasil Verif Praktikan");
-    }else{
-        header("location: index.php?page=daftarprak&aksi=view&pesan=Gagal Verif Praktikan");
-    }
-}
 
 }
-//$tes = new DaftarPrakModel();
-//var_export($tes->prosesUnVerif(2,2));
-//die();
+

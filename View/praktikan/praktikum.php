@@ -32,14 +32,14 @@
                             <?php $no = 1;
                             foreach ($data as $row) : ?>
                             <tr>
-                                <td><?= $no ?></td>
-                                <td><?=$data['namaPraktikum'] ?> </td>
+                                <td><?=$no ?></td>
+                                <td><?= $row['namaPraktikum'] ?></td>
                                 <td>
-                                    <a href="index.php?page=praktikan&aksi=nilaiPraktikan&idPraktikum=<?=$data['idPraktikum']?>" class="btn btn-info">Cek Nilai</a>
+                                    <a href="index.php?page=praktikan&aksi=nilaiPraktikan&idPraktikum=<?= $row['idPraktikum'] ?>" class="btn btn-info">Cek Nilai</a>
                                 </td>
                             </tr>
                             <?php $no++;
-                            endforeach; ?>
+                            endforeach;?>
                         </tbody>
                     </table>
                 </div>

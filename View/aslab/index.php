@@ -35,12 +35,13 @@
                             foreach ($data as $row) : ?>
                             <tr>
                                 <td><?= $no ?></td>
-                                <td><?=$data ['namaPraktikum'] ?></td>
-                                <td><?=$data ['namaPraktikan'] ?></td>
-                                <td><?=$data ['npmPraktikan'] ?></td>
-                                <td><?=$data ['nohpPraktikan'] ?></td>
+                                <td><?=$row ['namaPraktikum'] ?></td>
+                                <td><?=$row ['namaPraktikan'] ?></td>
+                                <td><?=$row ['npmPraktikan'] ?></td>
+                                <td><?=$row ['nohpPraktikan'] ?></td>
                                 <!-- id Diganti saat modul 3 -->
-                                <td><a href="index.php?page=aslab&aksi=nilai&id=<?= $data['idPraktikan']?>" class="btn btn-outline-primary">Nilai</a></td>
+                                <td><a href="index.php?page=aslab&aksi=nilai&id=<?= $row['idPraktikan']?>" class="btn btn-outline-primary">Nilai</a></td>
+                                
                             </tr>
                             <?php $no++;
                             endforeach; ?>

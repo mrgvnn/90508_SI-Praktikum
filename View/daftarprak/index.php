@@ -44,7 +44,7 @@
                                     <?php endif ?>
                                 </td>
                             </tr>
-                            <?php $no ++;
+                            <?php $no++;
                             endforeach; ?>
                         </tbody>
                     </table>

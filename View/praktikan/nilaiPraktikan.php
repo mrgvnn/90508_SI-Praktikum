@@ -21,17 +21,18 @@
                     <!-- Diganti Saat Modul 2 -->
                     <table class="table table-striped table-bordered">
                         <thead>
-                            <tr>
+                            <tr>                            
                                 <?php foreach ($modul as $row) : ?>
-                                    <td><?= $row['namaModul']; ?></td>
-                                <?php endforeach; ?>
+                                <td><?= $row['namaModul'] ?></td>
+                                <?php endforeach;?>
+
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <?php foreach ($nilai as $row) : ?>
-                                    <td><?= $row['nilai']?></td>
-                                <?php endforeach; ?>
+                            <?php foreach ($nilai as $row) : ?>
+                                <td><?= $row['nilai'] ?></td>
+                                <?php endforeach;?>
                             </tr>
                         </tbody>
                     </table>
